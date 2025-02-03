@@ -216,6 +216,38 @@ apt install -y apache2 mariadb-server mariadb-client php php-mysqli php-gd libap
 
 The site will work with MySQL instead of MariaDB but we strongly recommend MariaDB as it works out of the box whereas you have to make changes to get MySQL to work correctly.
 
+### Apache Modules
+
+If you want to use the API lab you must have the Apache module `mod_rewrite` enabled. To do this in Linux run:
+
+```
+a2enmod rewrite
+```
+
+And then restart Apache with:
+
+```
+apachectl restart
+```
+
+### Vendor Files
+
+If you want to use the API module you will need to install a set of vendor files using [Composer](https://getcomposer.org/).
+
+First, make sure you have Composer installed. There seem to be backward compatibility issues so I always get the latest version from here:
+
+https://getcomposer.org/doc/00-intro.md
+
+Follow the instructions the site gives to get it installed.
+
+Now go into the `vulnerabilities/api` directory and run:
+
+```
+composer.phar install
+```
+
+If you did not install Composer to the system path, make sure you reference its full location.
+
 ## Configurations
 
 ### Config File
